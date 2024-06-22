@@ -195,7 +195,7 @@ async def _batch(event):
             save_batch_data(batch_data)
 
             cd = await conv.send_message("**Batch process ongoing...**\n\nChunks processed: 0", 
-                                    buttons=[[Button.url("Join Channel", url="http://t.me/devggn")]])
+                                    buttons=[[Button.url("Join Channel", url="https://t.me/AJ_courses")]])
             co, is_canceled = await run_batch(userbot, Bot, user_id, cd, _link) 
             try: 
                 if co == -2:
@@ -379,11 +379,11 @@ async def run_batch(userbot, client, sender, countdown, link):
                         logger.info(e)
                         if countdown.text != count_down:
                             await countdown.edit(count_down,
-                                                 buttons=[[Button.url("Join Channel", url="http://t.me/devggn")]])
+                                                 buttons=[[Button.url("Join Channel", url="https://t.me/AJ_courses")]])
             except Exception as e:
                 if countdown.text != count_down:
                     await countdown.edit(count_down,
-                                         buttons=[[Button.url("Join Channel", url="https://t.me/devggn")]])
+                                         buttons=[[Button.url("Join Channel", url="https://t.me/AJ_courses")]])
 
         # Wait for all tasks in the chunk to complete
         await asyncio.gather(*chunk_tasks[str(sender)])
@@ -394,7 +394,7 @@ async def run_batch(userbot, client, sender, countdown, link):
             sleep_message = f"Sleeping for {current_timer} seconds before processing the next batch."
             sleep_msg = await client.send_message(sender, sleep_message)
             # Edit countdown message to show processed value only
-            await countdown.edit(f"**Batch process ongoing...**\n\nProcessed: {processed_ids} Links", buttons=[[Button.url("Join Channel", url="http://t.me/devggn")]])
+            await countdown.edit(f"**Batch process ongoing...**\n\nProcessed: {processed_ids} Links", buttons=[[Button.url("Join Channel", url="https://t.me/AJ_courses")]])
 
             try:
                 await asyncio.sleep(current_timer)  # Sleep for the current timer value
@@ -428,7 +428,7 @@ async def download_and_unzip(user_id, bot_token, session, event):
         zip_ref.extractall(user_folder)
 
     init_file_content = f"""
-#Join @devggn
+#Join @AJ_courses
 
 from pyrogram import Client
 from telethon.sessions import StringSession
@@ -466,7 +466,7 @@ userbot = Client("myacc",api_id=API_ID,api_hash=API_HASH,session_string=SESSION)
 try:
     userbot.start()
 except BaseException:
-    print("Your session expired please re add that... thanks @devggn.")
+    print("Your session expired please re add that... thanks @AJ_courses.")
     sys.exit(1)
 
 Bot = Client(
@@ -596,7 +596,7 @@ async def _bulk(event):
             save_batch_data(batch_data)
 
             cd = await conv.send_message("**Batch process ongoing...**\n\nProcess completed: ", 
-                                    buttons=[[Button.url("Join Channel", url="http://t.me/devggn")]])
+                                    buttons=[[Button.url("Join Channel", url="https://t.me/AJ_courses")]])
             co = await r_batch(userbot, Bot, user_id, cd, _link) 
             try: 
                 if co == -2:
@@ -644,7 +644,7 @@ async def r_batch(userbot, client, sender, countdown, link):
             await get_bulk_msg(userbot, client, sender, link, integer)
             protection = await client.send_message(sender, f"Sleeping for `{timer}` seconds to avoid Floodwaits and Protect account!")
             await countdown.edit(count_down, 
-                                 buttons=[[Button.url("Join Channel", url="https://t.me/devggn")]])
+                                 buttons=[[Button.url("Join Channel", url="https://t.me/AJ_courses")]])
             await asyncio.sleep(timer)
             await protection.delete()
         except IndexError as ie:
@@ -666,12 +666,12 @@ async def r_batch(userbot, client, sender, countdown, link):
                 except Exception as e:
                     logger.info(e)
                     if countdown.text != count_down:
-                        await countdown.edit(count_down, buttons=[[Button.url("Join Channel", url="http://t.me/devggn")]])
+                        await countdown.edit(count_down, buttons=[[Button.url("Join Channel", url="https://t.me/AJ_courses")]])
         except Exception as e:
             #logger.info(e)
             #await client.send_message(sender, f"An error occurred during cloning, batch will continue.\n\n**Error:** {str(e)}")
             if countdown.text != count_down:
-                await countdown.edit(count_down, buttons=[[Button.url("Join Channel", url="https://t.me/devggn")]])
+                await countdown.edit(count_down, buttons=[[Button.url("Join Channel", url="https://t.me/AJ_courses")]])
         n = i + 1
         if n == len(ids_data[str(sender)]):
             return -2
