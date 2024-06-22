@@ -617,22 +617,22 @@ async def _bulk(event):
 
 async def r_batch(userbot, client, sender, countdown, link):
     for i in range(len(ids_data[str(sender)])):
-        timer = 30  # Increased default timer value
+        timer = 60  # Increased default timer value
 
         if i < 250:
-            timer = 5
-        elif 250 <= i < 1000:
-            timer = 10
-        elif 1000 <= i < 10000:
             timer = 15
-        elif 10000 <= i < 50000:
+        elif 250 <= i < 1000:
             timer = 20
-        elif 50000 <= i < 100000:
+        elif 1000 <= i < 10000:
             timer = 25
-        elif 100000 <= i < 200000:
+        elif 10000 <= i < 50000:
             timer = 30
+        elif 50000 <= i < 100000:
+            timer = 55
+        elif 100000 <= i < 200000:
+            timer = 60
         elif i >= 200000:
-            timer = 35  # Increased timer value for larger counts
+            timer = 65  # Increased timer value for larger counts
 
         # Adjust the timer for links other than channel links
         if 't.me/c/' not in link:
